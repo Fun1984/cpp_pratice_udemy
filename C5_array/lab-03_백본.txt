@@ -1,0 +1,60 @@
+//2차원 배열의 종합 실습 예제
+//아래와 같은 실행결과가 나오도록 프로그램 작성
+// int score[][] == {{88,95,100},{85,63,20},{34,30,30},{40,49,70},{15,75,98}};
+
+//위와 같이 score 2차원 배열을 선언과 동시에 초기화. 
+// 더블루프를 이용해 아래와 같이 출력
+// 단, C++스타일과 C스타일을 혼용하던지 둘 중 하나로. 
+
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+#define ROW 5
+#define COL 3
+
+int main(void) {
+    int i = 0, total = 0, avg = 0, idx = 0;
+    int score[ROW][COL] = {{88,95,100},{85,63,20},{34,30,30},{40,49,70},{15,75,98}};
+    string study[COL] = {"국어", "영어", "수학"}; 
+    cout << "번호 국어 영어   수학  총점  평균" << endl;
+    cout << "=================================" << endl;
+
+    for(int(&r)[COL] : score) {
+        
+        cout << i+1 << "    ";
+        for (int j : score[i]) {
+            cout << j << "    ";
+        }
+        for (int j : score[i++]) {
+            total += j;
+            avg = (double)total / COL;
+        }
+        cout << total << "    ";
+        cout << fixed;
+        cout.precision(2);
+        cout << avg << endl;
+        total = 0;
+        avg = 0;
+    }
+    cout << "=================================" << endl;
+    i = 0;
+    cout<<"총점 ->";
+    for (string s : study) {
+        total = 0;
+        for (auto &j : score) {
+            total += j[idx];
+        }
+        cout << s <<"["<<total<<"]";
+        idx++;
+    }
+    cout <<endl;
+    
+    
+
+    
+
+
+    return 0;
+}
