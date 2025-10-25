@@ -9,7 +9,7 @@ int main(void) {
     double result = 0.0;
     char choice = 'Y', op = '_';
     while (true) {
-        cout << "두 수를 입력하세요 : " <<endl;
+        cout << "두 수를 입력하세요 : ";
         scanf_s("%d, %d", &num1, &num2);
         // cout << num1 << ", "<< num2;
 
